@@ -8,7 +8,7 @@ It will then be started on port 3000.
 
 # Endpoints
 
-## Hello World
+## Default Behavior
 
 ```sh
 curl http://localhost:3000
@@ -16,11 +16,11 @@ curl http://localhost:3000
 
 ## Storing Data
 ```sh
-curl http://localhost:3000/store/my-key\?some\=value\&some-other\=other-value
+
 ```
 
 ## Fetching Data
 
 ```sh
-curl http://localhost:3000/my-key
+
 ```
