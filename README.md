@@ -10,15 +10,12 @@ To start the app run: `docker-compose up`.
 
 To start the app in background run: `docker-compose up -d`.
 
-It will then be started on port 3000.
-
-# Endpoints
-
 ## Default Behavior
 
 ```sh
-runing on http://localhost:3000
+runing on {YOUR_IP}:3000
 ```
+# Endpoints
 
 ## Default methods when extending from provided main class
 ```sh
