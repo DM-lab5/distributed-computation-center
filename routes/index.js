@@ -30,7 +30,7 @@ router.post('/users', internalAuthenticate, async function (req, res) {
 })
 
 //TODO this must be private
-router.get('/users/:key', async function (req, res) {
+router.get('/users/:key',authenticate, async function (req, res) {
     const { key } = req.params;
     const resp = await  userController.get(req, res, { key });
     res.send({ data: resp });

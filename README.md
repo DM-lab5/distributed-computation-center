@@ -6,6 +6,9 @@ System provides logging available in server, where the software is running. All 
 
 Requirements: [Docker Community Edition](https://www.docker.com/community-edition)
 
+Install [Docker](https://www.docker.com/products/docker-engine#/download) version 17.05+
+Install [Docker Compose](https://docs.docker.com/compose/install/) version 1.6.0+
+
 To start the app run: `docker-compose up`.
 
 To start the app in background run: `docker-compose up -d`.
