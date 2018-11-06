@@ -7,7 +7,7 @@ const internalAuthenticate = require('../middlewares/private/internal-authentica
 
 // Home page route.
 router.get('/', function (req, res) {
-    res.send('center is working');
+    res.send({status:'ok'});
 })
 
 router.get('/compute/:model/:key', authenticate, async function (req, res) {
