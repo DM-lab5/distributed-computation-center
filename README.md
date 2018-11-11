@@ -29,6 +29,11 @@ Kibana is up on
     {YOUR_IP}:5601
 ```
 
+Elasticsearch is up on 
+```sh
+    {YOUR_IP}:9200
+```
+
 # Endpoints
 
 ## Default methods when extending from provided main class
