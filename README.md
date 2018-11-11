@@ -70,7 +70,7 @@ List all docker images
 ```sh
     docker images -a
 ```
-Remove all docker images (images will be downloaded again)
+Remove all docker images (images will be downloaded again on start)
 
 ```
     docker rmi $(docker images -q) [ --force ]
