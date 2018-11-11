@@ -1,8 +1,10 @@
 # Distributed Computation Center
 
-Software package intended for research teams, for distributed computations. Software at current version supports computations that has sequential nature. Software supports unlimited number of participants, that can request at anytime. All requests will be placed into queue, and executed in the order they arrived. From here can be inferred that the what kind of models can be computed by this software package. That is, only models which has state at every given moment, and can be updated at any given step, regardless of requests waiting in queue. Nevertheless, this is the default behaviour expected from software, and there is freedom to design the application is a way, so it can be used for parallel and non sequential models. Sequential modeling is available off-the-shelf. At current version request supported only by HTTP protocol.
+Software package intended for research teams, for distributed computations. Software at current version supports computations that has sequential nature. Software supports unlimited number of participants, that can request at anytime. All requests will be placed into queue, and executed in the order they arrived. From here can be inferred the kind of models that can be computed by this software package. That is, only models which has state at every given moment, and can be updated at any given step, regardless of requests waiting in queue. Nevertheless, this is the default behaviour expected from software, and there is freedom to design the application in a way, so it can be used for parallel and non sequential models. Sequential modeling is available off-the-shelf. At current version request supported only by HTTP protocol.
 
-System provides logging available in server, where the software is running. All logs are collected through the most known logging stack that is [ELK](hhttps://www.elastic.co/elk-stack), hence, all logs are visualized by [Kibana](https://www.elastic.co/products/kibana). To have easy experience with environment we've wrapped the software into [Docker](https://www.docker.com/) containers, which is known enterprise container platform. This gives freedom to operate with any operating system without infrastructure lock-ins. All is needed for application to work is the Docker Community Edition. 
+System provides logging available in server, where the software is running. All logs are collected through the most known logging stack that is [ELK](hhttps://www.elastic.co/elk-stack), hence, all logs are visualized by [Kibana](https://www.elastic.co/products/kibana). Logging is configurable and can be disabled. As Elk stack runs as separate micro-service, it can be used for storing any user generated data and visualized in Kibana. Software provides embedded module for writing data into this stack.
+
+To have easy experience with environment we've wrapped the software into [Docker](https://www.docker.com/) containers, which is known enterprise container platform. This gives freedom to operate with any operating system without infrastructure lock-ins. All is needed for application to work is the Docker Community Edition. 
 
 Requirements: [Docker Community Edition](https://www.docker.com/community-edition)
 
@@ -11,8 +13,9 @@ Install [Docker](https://www.docker.com/products/docker-engine#/download) versio
 Install [Docker Compose](https://docs.docker.com/compose/install/) version 1.6.0+
 
 
-To start the app run: `docker-compose up`.
-To start the app in background run: `docker-compose up -d`.
+To start the app run: `docker-compose up` is the folder `process-monitoring`.
+After the process is finished run the following in the root folder: `docker-compose up`
+To start process in background run: `docker-compose up -d`.
 
 ## Default Behavior
 
@@ -60,7 +63,7 @@ Remove all docker images (images will be downloaded again)
 ```
 docker rmi $(docker images -q) [ --force ]
 ```
-Working exact Id
+With exact Id
 
 ```
 docker rmi @id
