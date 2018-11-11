@@ -73,7 +73,7 @@ List all docker images
 Remove all docker images (images will be downloaded again)
 
 ```
-docker rmi $(docker images -q) [ --force ]
+    docker rmi $(docker images -q) [ --force ]
 ```
 With exact Id
 
