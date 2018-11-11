@@ -34,3 +34,37 @@ runing on {YOUR_IP}:3000
 ```sh
  HTTP:POST /import recovers model from given encrypted string
 ```
+
+# Docker Helper
+
+List all docker containers 
+```sh
+docker ps -a
+```
+Stop all docker containers 
+```sh
+docker stop $(docker ps -aq)
+```
+Remove all docker containers
+ 
+```sh
+docker rm $(docker ps -aq)
+```
+List all docker images
+
+```sh
+docker images -a
+```
+Remove all docker images (images will be downloaded again)
+
+```
+docker rmi $(docker images -q) [ --force ]
+```
+Working exact Id
+
+```
+docker rmi @id
+```
+```
+docker stop @id
+```

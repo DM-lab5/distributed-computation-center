@@ -49,7 +49,7 @@ class VirtualRepository {
      fromJson(jsonStr){
          let json = jsonStr;
          if(typeof json === 'string'){
-             const json = JSON.parse(jsonStr);
+             json = JSON.parse(jsonStr);
          }
         for(let key in json){
             this[key] = json[key];

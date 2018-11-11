@@ -1,5 +1,5 @@
 const uuidv1 = require('uuid/v1');
-const Users = require('../../../dao/private/repository/users');
+const Users = require('../../../core/private/repository/users');
 
 const CONTROLLER = {};
 

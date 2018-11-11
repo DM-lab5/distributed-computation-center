@@ -1,5 +1,10 @@
-const VirtualRepository = require('../../../private/repository/virtual/index');
-const Publisher = require('../../../../publisher/index');
+/**
+ * create any class that extends from VirtualRepository,
+ * and use functions as in the above function
+ * @type {VirtualRepository}
+ */
+const VirtualRepository = require('../../../core/private/repository/virtual');
+const Publisher = require('../../../core/publisher');
 
 class MeanSum extends VirtualRepository {
     constructor({current, count}){
