@@ -10,7 +10,7 @@ services:
     networks:
        - process-monitoring_monitoring_1
     sysctls:
-      net.core.somaxconn: 1024
+      net.core.somaxconn: 512
     volumes:
     - redis-data:/data
 

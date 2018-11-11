@@ -1,14 +1,20 @@
-var winston = require('winston');
-const logger = winston.createLogger({
-    level: 'info',
-    format: winston.format.json(),
-    transports: [
-    ]
-});
+const { LOGGING } = require('../../../config');
+const logger = require('./logger');
 
-const log = async (req, res, next) => {
-    logger.info("Elastic logs");
-    next();
+const LEVELS = {
+    INFO: 'info',
+    ERROR: 'error'
 };
 
-module.exports = log;
+const error = (json)=> {
+    logger && logger.log(LEVELS.ERROR, json)
+};
+
+const info = (json)=> {
+    logger && logger.log(LEVELS.INFO, json);
+};
+
+module.exports = {
+    error,
+    info
+};

@@ -1,3 +1,3 @@
-const model = require('../dao/public/repository/model');
+const model = require('../public/repository/model');
 console.log('model is initialized !');
 console.log(model);
