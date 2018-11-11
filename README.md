@@ -13,7 +13,7 @@ Install [Docker](https://www.docker.com/products/docker-engine#/download) versio
 Install [Docker Compose](https://docs.docker.com/compose/install/) version 1.6.0+
 
 
-To start the app run: `docker-compose up` is the folder `process-monitoring`.
+To start the app run: `docker-compose up` in the folder `process-monitoring`.
 After the process is finished run the following in the root folder: `docker-compose up`
 To start process in background run: `docker-compose up -d`.
 
