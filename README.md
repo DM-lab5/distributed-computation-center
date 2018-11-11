@@ -21,17 +21,17 @@ To start process in background run: `docker-compose up -d`.
 
 Computation center is up on 
 ```sh
-    {YOUR_IP}:3000
+    localhost:3000
 ```
 
 Kibana is up on 
 ```sh
-    {YOUR_IP}:5601
+    localhost:5601
 ```
 
 Elasticsearch is up on 
 ```sh
-    {YOUR_IP}:9200
+    localhost:9200
 ```
 
 # Endpoints
