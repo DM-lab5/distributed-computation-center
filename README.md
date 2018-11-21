@@ -17,6 +17,8 @@ To start the app run: `docker-compose up` in the folder `process-monitoring`.
 After the process is finished run the following in the root folder: `docker-compose up`
 To start process in background run: `docker-compose up -d`.
 
+For testing the computation center in stand-alone mode download [Postman](https://www.getpostman.com/apps)
+
 ## Default Behavior
 
 Computation center is up on 
