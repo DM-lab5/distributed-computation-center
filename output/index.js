@@ -4,7 +4,7 @@ function defaultResponseHandler({res, req, data , logger}) {
     const logData = {...ELASTIC_DEFAULTS.logger, endPoint: req.originalUrl || req.url, status:200, ...data };
     logger.info(logData);
     res.setHeader('Content-Type', 'application/json');
-    res.send(data);
+    res.send({ data });
 };
 
 function defaultErrorHandler({res, req, data , logger}) {

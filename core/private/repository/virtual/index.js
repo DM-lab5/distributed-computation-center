@@ -8,13 +8,20 @@ const { ENCRYPTION_KEY } = require('../../../../config/index');
  * that will be used while pulling and updating model from database.
   */
 class VirtualRepository {
-    constructor(params,modelName){
+    constructor(params, modelName){
         if(!modelName){
             throw new Error("Expected unique model name, but provided undefined");
         }
-        this.fromJson(params);
         this.name = modelName;
-        this.sync().then();
+        this.fetch().then((resp)=>{
+            if(!resp){
+                console.log('Creating model with provided arguments ...');
+                this.fromJson(params);
+                this.sync().then();
+            }else{
+                console.log('Loading model from database');
+            }
+        });
     }
 
     /**
@@ -22,21 +29,39 @@ class VirtualRepository {
      * Function should be called before any read or write operation
      * @returns {Promise<void>}
      */
-    async fetch(){
-        const json = await redis.getAsync(this.name);
-        const resp  = this.fromJson(json);
-        return resp;
+    async fetch({ v }){
+        const version = await redis.getAsync('version');
+        const json = await redis.getAsync(this.name + '_v' +  (v || version));
+        if(json){
+            const resp  = this.fromJson(json);
+            return resp;
+        }
+        return json;
     }
 
     /**
      * Writes local changes to database
      * Function should be called after any write operation
-     * @returns {Promise<void>}
+     * @returns {Promise<>}
      */
      async sync(){
         const json = this.toJson();
-        await redis.setAsync(this.name, JSON.stringify(json));
-        return json;
+        let version = await redis.getAsync('version');
+        if(!version){
+            version = 1;
+        } else {
+            version++;
+        }
+        await redis.setAsync('version', version);
+        await redis.setAsync(this.name + '_v' +  version, JSON.stringify(json));
+        console.log(`syncing model ${JSON.stringify(this.toJson())}`);
+        console.log(`current version is ${version}`);
+        return { ...json, version};
+     }
+
+     async lastVersion(){
+        let version = await redis.getAsync('version');
+        return version;
      }
 
     toJson(){

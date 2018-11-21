@@ -11,7 +11,7 @@ class MeanSum extends VirtualRepository {
         super({current, count},'MeanSum');
     }
 
-    async addValue(sum, overall){
+    async add({sum, overall}){
 
         await this.fetch();
         // *******************  All Calculations Go Here  *********************

@@ -1,7 +1,7 @@
 const elasticsearch = require('elasticsearch');
 const { createLogger, format } = require('winston');
 const ElasticSearch = require('winston-elasticsearch');
-const { ELASTIC_URL } = require('../../../config');
+const { ELASTIC_URL, LOGGING } = require('../../../config');
 
 const LEVELS = {
     INFO: 'info',
@@ -28,11 +28,14 @@ const esTransportOpts = {
     client: esClient,
 };
 
+const transports = [];
+if(LOGGING === 1){
+    transports.push(new ElasticSearch(esTransportOpts));
+}
+
 const logger = createLogger({
     maxsize: 5242880,
-    transports: [
-        new ElasticSearch(esTransportOpts)
-    ]
+    transports
 });
 
 module.exports = logger;

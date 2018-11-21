@@ -7,8 +7,6 @@ const router = express.Router();
 const authenticate = require('../middlewares/private/authentication');
 const internalAuthenticate = require('../middlewares/private/internal-authentication');
 
-
-
 router.get('/', function (req, res) {
     defaultResponseHandler({res, req, logger, data:{ status:200 } });
 });
